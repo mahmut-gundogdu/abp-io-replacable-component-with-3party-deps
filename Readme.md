@@ -7,5 +7,5 @@ due that I've added  `my-tenant component` to App.module.ts. Now it works with `
 
 
 
-![Example](image1.png).
+![Example](./image1.png).
 
