@@ -1,6 +1,8 @@
-import { AuthService } from '@abp/ng.core';
+import {AuthService, ReplaceableComponentsService} from '@abp/ng.core';
 import { Component } from '@angular/core';
 import { OAuthService } from 'angular-oauth2-oidc';
+import {eTenantManagementComponents} from "@abp/ng.tenant-management";
+import {MyTenantComponent} from "../my-tenant/my-tenant.component";
 
 @Component({
   selector: 'app-home',
@@ -12,7 +14,14 @@ export class HomeComponent {
     return this.oAuthService.hasValidAccessToken();
   }
 
-  constructor(private oAuthService: OAuthService, private authService: AuthService) {}
+  constructor(private oAuthService: OAuthService,
+              private authService: AuthService,
+              private replaceableComponentsService:ReplaceableComponentsService) {
+    this.replaceableComponentsService.add({
+      component: MyTenantComponent,
+      key: eTenantManagementComponents.Tenants
+    })
+  }
 
   login() {
     this.authService.navigateToLogin();

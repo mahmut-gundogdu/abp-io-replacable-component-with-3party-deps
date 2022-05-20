@@ -13,6 +13,8 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { APP_ROUTE_PROVIDER } from './route.provider';
+import { MyTenantComponent } from './my-tenant/my-tenant.component';
+import { NzCardModule } from 'ng-zorro-antd/card';
 
 @NgModule({
   imports: [
@@ -29,8 +31,9 @@ import { APP_ROUTE_PROVIDER } from './route.provider';
     TenantManagementConfigModule.forRoot(),
     SettingManagementConfigModule.forRoot(),
     ThemeBasicModule.forRoot(),
+    NzCardModule
   ],
-  declarations: [AppComponent],
+  declarations: [AppComponent, MyTenantComponent],
   providers: [APP_ROUTE_PROVIDER],
   bootstrap: [AppComponent],
 })
